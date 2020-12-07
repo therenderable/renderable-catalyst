@@ -97,7 +97,7 @@ def install_dependencies():
   if platform_name != 'Windows':
     install_virtualbox(virtualbox_version, virtualbox_build_version, application_directory)
 
-  #install_docker_machine(docker_machine_version, platform_name, application_directory)
+  install_docker_machine(docker_machine_version, platform_name, application_directory)
   write_configuration_file(default_configuration, application_directory)
 
 

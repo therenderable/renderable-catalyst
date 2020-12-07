@@ -1,8 +1,7 @@
 from pathlib import Path
 from configparser import ConfigParser
 
-#
-from ... import machine as m
+from renderable_core.services import Machine
 
 
 class Stop:
@@ -25,15 +24,16 @@ class Stop:
       logger.error('invalid configuration file.')
       exit(1)
 
-    machine = m.Machine(machine_name, root_path)
-
-    if not machine.exists():
-      logger.error('machine already stopped.')
-      exit(1)
-
-    logger.info('stopping...')
+    machine = Machine(machine_name, root_path)
 
     try:
+      if not machine.running():
+        logger.error('machine already stopped.')
+        exit(1)
+
+      logger.info('stopping...')
+
+      machine.leave_cluster()
       machine.stop()
     except:
       logger.error('failed to stop machine.')
