@@ -4,14 +4,14 @@ Renderable desktop client.
 
 ## Prerequisites
 
-* [Docker Engine >=19.03.12](https://docs.docker.com/engine)
+* [Python >=3.7.0](https://www.python.org)
 
 ## Installation
 
-Build container image:
+Install dependencies and package:
 
 ```
-docker build -t renderable-catalyst:1.0.0 .
+python3 setup.py install
 ```
 
 ## Copyright and license
