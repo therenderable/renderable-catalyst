@@ -37,7 +37,9 @@ def install_virtualbox(version, build_version, directory):
     else:
       raise error
 
-  subprocess.check_call(f'chmod +x {path} && sh {path} && rm {path}', shell = True)
+  subprocess.check_call(f'chmod +x {path}', shell = True)
+  subprocess.check_call(f'sudo sh {path}', shell = True)
+  subprocess.check_call(f'rm {path}', shell = True)
 
 def install_docker_machine(version, platform_name, directory):
   executable_extension = '.exe' if platform_name == 'Windows' else ''
@@ -109,7 +111,7 @@ class DevelopCommand(develop):
 
 class InstallCommand(install):
   def run(self):
-    install_dependencies(self)
+    install_dependencies()
     super().run()
 
 
