@@ -114,7 +114,6 @@ class InstallCommand(install):
 
 
 requirements = [
-  'python-docker-machine>=0.2.5',
   'renderable-core@git+https://f2df37d2224599278c1adf7ba248ea3589a85448:x-oauth-basic@github.com/therenderable/renderable-core.git'
 ]
 
