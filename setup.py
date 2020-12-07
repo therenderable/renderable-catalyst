@@ -19,9 +19,6 @@ def create_application_directory(name):
   return directory
 
 def install_virtualbox(version, build_version, directory):
-  if find_executable('virtualbox'):
-    return
-
   url = f'https://download.virtualbox.org/virtualbox/{version}/VirtualBox-{version}-{build_version}-Linux_amd64.run'
 
   intermediate_path = directory / Path('bin')
@@ -96,7 +93,7 @@ with open(convert_path(f'{package_directory}/package.py'), 'r') as file:
 def install_dependencies():
   platform_name = platform.system()
 
-  if platform_name != 'Windows':
+  if platform_name != 'Windows' and find_executable('virtualbox') is None:
     install_virtualbox(virtualbox_version, virtualbox_build_version, application_directory)
 
   install_docker_machine(docker_machine_version, platform_name, application_directory)
