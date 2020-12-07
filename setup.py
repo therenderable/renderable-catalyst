@@ -56,7 +56,8 @@ def install_docker_machine(version, platform_name, directory):
     else:
       raise error
 
-  subprocess.check_call(f'chmod +x {path}', shell = True)
+  if platform_name != 'Windows':
+    subprocess.check_call(f'chmod +x {path}', shell = True)
 
 def write_configuration_file(configuration, directory):
   parser = ConfigParser()
