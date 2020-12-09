@@ -35,10 +35,11 @@ class Status:
     try:
       job_response = client.get_job(job_id)
 
-      print(utils.job_statistics([job_response]), end = '\r')
+      print(utils.job_statistics([job_response]))
 
       def callback(response):
-        print(utils.job_statistics([response]), end = '\r')
+        print('\n')
+        print(utils.job_statistics([response]))
 
       client.listen_job(job_response.id, callback)
     except:
