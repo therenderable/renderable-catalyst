@@ -11,7 +11,9 @@ def main():
 
   subcommands = [
     commands.Start(),
-    commands.Stop()
+    commands.Stop(),
+    commands.Render(),
+    commands.Status()
   ]
 
   cli = CLI(subcommands)

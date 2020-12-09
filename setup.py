@@ -35,7 +35,7 @@ def install_virtualbox(version, build_version, directory):
       raise error
 
   subprocess.check_call(f'chmod +x {path}', shell = True)
-  subprocess.check_call(f'sudo sh {path}', shell = True)
+  subprocess.check_call(f'sudo sh {path} --nox11 n', shell = True)
   subprocess.check_call(f'rm {path}', shell = True)
 
 def install_docker_machine(version, platform_name, directory):

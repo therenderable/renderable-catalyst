@@ -11,7 +11,7 @@ Renderable desktop client.
 Install dependencies and package:
 
 ```
-python3 setup.py install
+pip install .
 ```
 
 ## Copyright and license
