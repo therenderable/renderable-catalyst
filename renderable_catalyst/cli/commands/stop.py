@@ -33,7 +33,9 @@ class Stop:
 
       logger.info('stopping...')
 
-      machine.leave_cluster()
+      if machine.attached():
+        machine.leave_cluster()
+
       machine.stop()
     except:
       logger.error('failed to stop machine.')

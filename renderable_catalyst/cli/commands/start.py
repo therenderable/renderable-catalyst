@@ -74,6 +74,9 @@ class Start:
         logger.info('preparing machine environment...')
         machine.create(cpus, memory, storage)
 
+      if machine.attached():
+        machine.leave_cluster()
+
       machine.join_cluster(device.cluster_address, device.token)
     except:
       logger.error('failed to start machine.')
