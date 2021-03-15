@@ -79,7 +79,7 @@ application_directory = create_application_directory(package_name)
 
 default_configuration = {
   'root_path': str(application_directory.resolve()),
-  'api_hostname': 'api.therenderable.com',
+  'api_hostname': '<api.renderable.com>',
   'api_port': 443,
   'api_version': 'v1',
   'api_secure': True,
@@ -116,7 +116,7 @@ class InstallCommand(install):
 
 
 requirements = [
-  'renderable-core@git+https://f2df37d2224599278c1adf7ba248ea3589a85448:x-oauth-basic@github.com/therenderable/renderable-core.git'
+  'renderable-core@git+https://github.com/therenderable/renderable-core.git'
 ]
 
 entrypoints = {
